@@ -20,7 +20,6 @@ class BookRepository @Inject constructor(
     )
 
     fun getBookDBList(itemResponse: List<Item>?): List<Book> {
-        Log.d("Test: ","Booksize: "+itemResponse?.size)
         val bookList = ArrayList<Book>()
         itemResponse?.forEach { item ->
             val model = item.volumeInfo

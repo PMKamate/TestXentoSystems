@@ -60,7 +60,6 @@ object Utils {
     fun getCountry(): String {
         val locale = Locale.getDefault()
         val country = locale.country
-        Log.d("Test: ","country: "+country)
         return country.toLowerCase()
     }
 

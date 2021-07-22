@@ -20,7 +20,6 @@ class NewsRepository @Inject constructor(
     )
 
     fun getNewsList(itemResponse: List<Article>?): List<News> {
-        Log.d("Test: ","NewsDBsize: "+itemResponse?.size)
         val newsList = ArrayList<News>()
         itemResponse?.forEach { model ->
             newsList.add(
