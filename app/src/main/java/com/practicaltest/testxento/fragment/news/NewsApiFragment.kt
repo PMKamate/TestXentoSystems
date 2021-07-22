@@ -75,6 +75,8 @@ class NewsApiFragment : Fragment(), NewsAdapter.NewsItemListener {
     override fun onClickedNews(nesId: Int) {
         val intent = Intent(activity, DetailsActivity::class.java)
         val model: News = adapter.items.get(nesId)
+        intent.putExtra("id", nesId)
+        intent.putExtra("tag", "NewsApiFragment")
         intent.putExtra("url", model.url)
         intent.putExtra("title", model.title)
         intent.putExtra("img", model.urlToImage)

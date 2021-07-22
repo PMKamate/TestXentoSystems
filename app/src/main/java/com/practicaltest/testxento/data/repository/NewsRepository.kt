@@ -1,6 +1,5 @@
 package com.practicaltest.testxento.data.repository
 
-import android.util.Log
 import com.practicaltest.testxento.data.entities.News
 import com.practicaltest.testxento.data.local.NewsDao
 import com.practicaltest.testxento.data.remote.NewsRemoteDataSource

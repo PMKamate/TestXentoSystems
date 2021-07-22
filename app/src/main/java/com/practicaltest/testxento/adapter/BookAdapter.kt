@@ -18,14 +18,13 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.practicaltest.testxento.data.entities.Book
-import com.practicaltest.testxento.databinding.ItemBinding
 import com.practicaltest.testxento.databinding.ItemBookBinding
 import com.practicaltest.testxento.utils.Utils
 
 class BookAdapter(private val listener: BookItemListener,val context: Context?) : RecyclerView.Adapter<BookViewHolder>() {
 
     interface BookItemListener {
-        fun onClickedBook(bookId: Int)
+        fun onClickedBook(bookId: String?)
     }
 
     val items = ArrayList<Book>()
@@ -84,8 +83,6 @@ class BookViewHolder(private val itemBinding: ItemBookBinding, private val liste
                             isFirstResource: Boolean
                         ): Boolean {
                             Log.d("Test:exceptiom ",""+e)
-
-                           // itemBinding.prograssLoadPhoto.setVisibility(View.GONE)
                             return false
                         }
 
@@ -96,7 +93,6 @@ class BookViewHolder(private val itemBinding: ItemBookBinding, private val liste
                             dataSource: DataSource,
                             isFirstResource: Boolean
                         ): Boolean {
-                           // itemBinding.prograssLoadPhoto.setVisibility(View.GONE)
                             return false
                         }
                     })
@@ -107,7 +103,7 @@ class BookViewHolder(private val itemBinding: ItemBookBinding, private val liste
     }
 
     override fun onClick(v: View?) {
-        listener.onClickedBook(book.id)
+        listener.onClickedBook(book.bookId)
     }
 }
 

@@ -26,7 +26,6 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object AppModule {
 
-    val BaseURL = "https://www.googleapis.com/"
     @Singleton
     @Provides
     @Named("retrofit_1")

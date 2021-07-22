@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName
 
 class Item {
 
+    @SerializedName("id")
+    @Expose
+    var id: String? = null
+
     @SerializedName("volumeInfo")
     @Expose
     var volumeInfo: VolumeInfo? = null

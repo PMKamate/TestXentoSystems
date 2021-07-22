@@ -1,6 +1,7 @@
 package com.practicaltest.testxento.adapter
 
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.Log
@@ -61,7 +62,8 @@ class NewsViewHolder(
         itemBinding.root.setOnClickListener(this)
     }
 
-    fun bind(item: News,context:Context?) {
+    @SuppressLint("CheckResult")
+    fun bind(item: News, context:Context?) {
         this.news = item
         itemBinding.title.text = item.title
         itemBinding.desc.text = item.description
@@ -89,7 +91,6 @@ class NewsViewHolder(
                         isFirstResource: Boolean
                     ): Boolean {
                         Log.d("Test:exceptiom ", "" + e)
-
                         itemBinding.prograssLoadPhoto.setVisibility(View.GONE)
                         return false
                     }

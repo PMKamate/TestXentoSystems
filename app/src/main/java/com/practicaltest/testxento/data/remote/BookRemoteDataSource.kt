@@ -6,4 +6,6 @@ class BookRemoteDataSource @Inject constructor(
     private val bookService: BookService
 ) : BaseDataSource() {
     suspend fun getAllBook(q: String) = getResult { bookService.getAllBook(q) }
+
+    suspend fun getBookDetails(id: String) = getResult { bookService.getBookDetails(id) }
 }

@@ -13,8 +13,8 @@ interface BookDao {
     @Query("SELECT * FROM bookItem")
     fun getAllBook() : LiveData<List<Book>>
 
-    @Query("SELECT * FROM bookItem WHERE id = :id")
-    fun getBook(id: Int): LiveData<Book>
+    @Query("SELECT * FROM bookItem WHERE bookId = :bookId")
+    fun getBook(bookId: String): LiveData<Book>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(books: List<Book>)

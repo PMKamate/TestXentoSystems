@@ -12,12 +12,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.practicaltest.testxento.R
 import com.practicaltest.testxento.activity.DetailsActivity
 import com.practicaltest.testxento.adapter.BookAdapter
 import com.practicaltest.testxento.data.entities.Book
 import com.practicaltest.testxento.databinding.FragmentBookBinding
-import com.practicaltest.testxento.databinding.FragmentNewsBinding
 import com.practicaltest.testxento.utils.Resource
 import com.practicaltest.testxento.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,16 +68,10 @@ class BookApiFragment : Fragment(),BookAdapter.BookItemListener {
         })
     }
 
-    override fun onClickedBook(bookId: Int) {
+    override fun onClickedBook(bookId: String?) {
         val intent = Intent(activity, DetailsActivity::class.java)
-        val model: Book = adapter.items.get(bookId)
-        val rating = "Rating: ${model.averageRating} (${model.ratingsCount})"
-        intent.putExtra("url", model.infoLink)
-        intent.putExtra("title", model.title)
-        intent.putExtra("img", model.thumbnail)
-        intent.putExtra("date", model.publishedDate)
-        intent.putExtra("source", model.authors)
-        intent.putExtra("author", rating)
+        intent.putExtra("id", bookId)
+        intent.putExtra("tag", "BookApiFragment")
         startActivity(intent)
     }
 
